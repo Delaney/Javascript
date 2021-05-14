@@ -23,18 +23,27 @@
     <form id="dino-compare">
         <div class="form-container">
             <p>Name:</p>
-            <input id="name" class="form-field__full" type="name" name="name">
+            <input id="name" class="form-field__full" type="name" name="name" value="Dede">
             <p>Height</p>
-            <label>Feet: <input id="feet" class="form-field__short" type="number" name="feet"></label>
-            <label>inches: <input id="inches" class="form-field__short" type="number" name="inches"></label>
+            <label>Feet: <input id="feet" class="form-field__short" type="number" name="feet" value="6"></label>
+            <label>inches: <input id="inches" class="form-field__short" type="number" name="inches" value="1"></label>
             <p>Weight:</p>
-            <label><input id="weight" class="form-field__full" type="number" name="weight">lbs</label>
+            <label><input id="weight" class="form-field__full" type="number" name="weight" value="243">lbs</label>
             <p>Diet:</p>
             <select id="diet" class="form-field__full" name="diet">
                 <option>Herbavor</option>
                 <option>Omnivor</option>
                 <option>Carnivor</option>
             </select>
+            <!-- "where": "World Wide",
+            "when": "Holocene",
+            "fact": "All birds are living dinosaurs." -->
+            <p>Where:</p>
+            <select id="where" class="form-field__full" name="where">
+                <option value="Worldwide"></option>
+            </select>
+            <p></p>
+            <p></p>
             <div id="btn">Compare Me!</div>
         </div>
     </form>

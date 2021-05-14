@@ -1,3 +1,5 @@
+const form = document.getElementById("dino-compare");
+const grid = document.getElementById("grid");
 
 /**
 * @description Represents a dinosaur
@@ -174,7 +176,6 @@ const resetForm = function() {
     grid.style.display = "none";
     grid.innerHTML = "";
 }
-
 
 const btn = document.getElementById("btn");
 
