@@ -101,9 +101,16 @@ const animals = [];
 })();
 
 
-    // Create Human Object
-
-    // Use IIFE to get human data from form
+const getHumanData = function() {
+    return (function () {
+        const humanData = {};
+        humanData.species = document.getElementById("name").value;
+        humanData.height = (parseInt(document.getElementById("feet").value) * 12) + parseInt(document.getElementById("inches").value);
+        humanData.weight = document.getElementById("weight").value;
+        humanData.diet = document.getElementById("diet").value;
+        return humanData;
+    })();
+}
 
 
     // Create Dino Compare Method 1
