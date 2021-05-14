@@ -1,6 +1,21 @@
 
-    // Create Dino Constructor
-
+/**
+* @description Represents a dinosaur
+* @constructor
+* @param {string} species - The species of the dino
+* @param {string} weight - The weight of the dino
+* @param {string} height - The height of the dino
+* @param {string} diet - The diet of the dino
+* @param {string} where - The where of the dino
+* @param {string} when - The when of the dino
+* @param {string} fact - The fact of the dino
+*/
+function Animal(args) {
+    const {species, weight, height, diet, where, when, fact} = args;
+    return {
+        species, weight, height, diet, where, when, fact,
+    };
+}
 
     // Create Dino Objects
 
