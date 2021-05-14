@@ -132,4 +132,9 @@ const getHumanData = function() {
     // Remove form from screen
 
 
-// On button click, prepare and display infographic
+const btn = document.getElementById("btn");
+
+btn.addEventListener('click', function(e) {
+    const humanData = getHumanData();
+    const human = Animal(humanData);
+});
