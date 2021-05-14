@@ -125,11 +125,55 @@ const getHumanData = function() {
     // NOTE: Weight in JSON file is in lbs, height in inches.
 
 
-    // Generate Tiles for each Dino in Array
-  
-        // Add tiles to DOM
+const generateTiles = function(human) {
+    function shuffle(array) {
+        let m = array.length, t, i;
+        while (m) {
+            i = Math.floor(Math.random() * m--);
+            t = array[m];
+            array[m] = array[i];
+            array[i] = t;
+        }      
+        return array;
+    }
 
-    // Remove form from screen
+
+    let tiles = shuffle(Array.from(animals));
+
+    tiles.splice(4, 0, human);
+    return tiles;
+}
+
+const showTiles = function(tiles) {
+    form.style.display = "none";
+
+    tiles.forEach((tile, index) => {
+        const src = index != 4 ? 'images/' + tile.species + '.png' : 'images/human.png';
+        const element = document.createElement("div");
+        element.classList.add("grid-item");
+        element.innerHTML = `
+            <h3>${tile.species}</h3>
+            <img src="${src}" title="${tile.species}"/>
+        `;
+        grid.append(element);
+    });
+
+    const element = document.createElement("div");
+    element.innerHTML = "Back!";
+    element.classList.add("btn");
+    grid.append(element);
+    element.addEventListener('click', function(e) {
+        resetForm()
+    });
+    grid.style.display = "flex";
+}
+
+const resetForm = function() {
+    form.style.display = "block";
+    form.reset();
+    grid.style.display = "none";
+    grid.innerHTML = "";
+}
 
 
 const btn = document.getElementById("btn");
@@ -137,4 +181,6 @@ const btn = document.getElementById("btn");
 btn.addEventListener('click', function(e) {
     const humanData = getHumanData();
     const human = Animal(humanData);
+    const tiles = generateTiles(human);
+    showTiles(tiles);
 });
