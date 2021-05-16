@@ -1,6 +1,3 @@
-const form = document.getElementById("dino-compare");
-const grid = document.getElementById("grid");
-
 /**
  * @description The dinosaur data
  * @returns Array of dinosaur objects (plus a pigeon)
@@ -176,6 +173,10 @@ const compareProto = {
 
 Animal.prototype = compareProto;
 
+/**
+* @description Returns an array of Animal objects, created from the sample JSON
+* @returns {array} Array of animal objects
+*/
 function createAnimalsArray() {
     const animals = [];
     const animalArray = animalData();
@@ -187,6 +188,10 @@ function createAnimalsArray() {
     return animals;
 };
 
+/**
+* @description Captures form data for the Human object
+* @returns {object} Human data object
+*/
 function getHumanData() {
     return (function () {
         const humanData = {};
@@ -200,6 +205,11 @@ function getHumanData() {
     })();
 }
 
+/**
+* @description Shuffles the animals array, and inserts the human object in the grid middle - index 4
+* @param {object} Animal human object
+* @returns {array} Array of shuffled animals with human in the middle
+*/
 function generateTiles(human) {
     function shuffle(array) {
         let m = array.length, t, i;
@@ -220,7 +230,14 @@ function generateTiles(human) {
     return tiles;
 }
 
+/**
+* @description Displays the tiles on the DOM
+* @param {array} Array of shuffled animals with human in the middle
+* @returns {void}
+*/
 function showTiles(tiles) {
+    const form = document.getElementById("dino-compare");
+    const grid = document.getElementById("grid");
     form.style.display = "none";
     const human = tiles[4];
 
@@ -252,6 +269,10 @@ function showTiles(tiles) {
     grid.style.display = "flex";
 }
 
+/**
+* @description Reset the DOM to the original state
+* @returns {void}
+*/
 function resetForm() {
     form.style.display = "block";
     form.reset();
@@ -259,6 +280,10 @@ function resetForm() {
     grid.innerHTML = "";
 }
 
+/**
+* @description Handle click event
+* @returns {void}
+*/
 function click() {
     const humanData = getHumanData();
     const human = new Animal(humanData);
@@ -267,6 +292,9 @@ function click() {
     showTiles(tiles);
 }
 
+/**
+* @description IIFE to attach click handler to button
+*/
 (function() {
     const btn = document.getElementById("btn");
     btn.addEventListener('click', click);
