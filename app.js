@@ -231,13 +231,23 @@ function generateTiles(human) {
 }
 
 /**
+* @description Return the form and grid DOM elements
+* @returns {object}
+*/
+function getElements() {
+    const form = document.getElementById("dino-compare");
+    const grid = document.getElementById("grid");
+
+    return {form, grid};
+}
+
+/**
 * @description Displays the tiles on the DOM
 * @param {array} Array of shuffled animals with human in the middle
 * @returns {void}
 */
 function showTiles(tiles) {
-    const form = document.getElementById("dino-compare");
-    const grid = document.getElementById("grid");
+    const {form, grid} = getElements();
     form.style.display = "none";
     const human = tiles[4];
 
@@ -274,6 +284,7 @@ function showTiles(tiles) {
 * @returns {void}
 */
 function resetForm() {
+    const {form, grid} = getElements();
     form.style.display = "block";
     form.reset();
     grid.style.display = "none";
