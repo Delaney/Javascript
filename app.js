@@ -195,12 +195,12 @@ function createAnimalsArray() {
 function getHumanData() {
     return (function () {
         const humanData = {};
-        humanData.species = document.getElementById("name").value;
-        humanData.height = (parseInt(document.getElementById("feet").value) * 12) + parseInt(document.getElementById("inches").value);
-        humanData.weight = document.getElementById("weight").value;
-        humanData.diet = document.getElementById("diet").value;
-        humanData.where = document.getElementById("where").value;
-        humanData.when = document.getElementById("when").value;
+        humanData.species = document.getElementById('name').value;
+        humanData.height = (parseInt(document.getElementById('feet').value) * 12) + parseInt(document.getElementById('inches').value);
+        humanData.weight = document.getElementById('weight').value;
+        humanData.diet = document.getElementById('diet').value;
+        humanData.where = document.getElementById('where').value;
+        humanData.when = document.getElementById('when').value;
         return humanData;
     })();
 }
@@ -235,8 +235,8 @@ function generateTiles(human) {
 * @returns {object}
 */
 function getElements() {
-    const form = document.getElementById("dino-compare");
-    const grid = document.getElementById("grid");
+    const form = document.getElementById('dino-compare');
+    const grid = document.getElementById('grid');
 
     return {form, grid};
 }
@@ -248,14 +248,14 @@ function getElements() {
 */
 function showTiles(tiles) {
     const {form, grid} = getElements();
-    form.style.display = "none";
+    form.style.display = 'none';
     const human = tiles[4];
 
     tiles.forEach((tile, index) => {
         const src = index != 4 ? 'images/' + tile.species + '.png' : 'images/human.png';
         const fact = tile.fact ? `<p class="fine-print">${tile.randomFact(human)}</p>` : '';
-        const element = document.createElement("div");
-        element.classList.add("grid-item");
+        const element = document.createElement('div');
+        element.classList.add('grid-item');
         element.innerHTML = `
             <h3>${tile.species}</h3>
             <div style="display: flex; width: 100%;">
